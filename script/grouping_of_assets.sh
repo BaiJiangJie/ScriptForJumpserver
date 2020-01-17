@@ -68,7 +68,7 @@ class GroupingAsset(object):
                 node = self.get_except_node(asset)
                 self.move_asset_to_node(asset, node)
             except Exception as e:
-        print("----- Error: {} - {}".format(asset, e))
+                print("----- Error: {} - {}".format(asset, e))
 
 GroupingAsset().perform()
 
