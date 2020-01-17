@@ -64,8 +64,11 @@ class GroupingAsset(object):
         assets = self.get_all_assets()
         print("Need move asset count: {}".format(assets.count()))
         for asset in assets:
-            node = self.get_except_node(asset)
-            self.move_asset_to_node(asset, node)
+            try:
+                node = self.get_except_node(asset)
+                self.move_asset_to_node(asset, node)
+            except Exception as e:
+                print("----- Error: {} - {}".format(asset, e))
 
 GroupingAsset().perform()
 
