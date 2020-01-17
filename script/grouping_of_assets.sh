@@ -70,7 +70,7 @@ class GroupingAsset(object):
                 self.move_asset_to_node(asset, node)
             except Exception as e:
 		print("----- Error: {} - {}".format(asset, e))
-                self.exception_assets.append(asset)
+                self.exception_assets.append({asset.id: asset.hostname})
 	print("----- Exception Assets: {}".format(self.exception_assets))
 
 GroupingAsset().perform()
