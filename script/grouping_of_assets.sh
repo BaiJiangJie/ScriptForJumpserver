@@ -24,7 +24,6 @@ class GroupingAsset(object):
 
     def __init__(self):
         self.separator = '-'
-        self.exception_assets = []
 
     def get_all_assets(self):
         from assets.models import Asset
@@ -69,9 +68,7 @@ class GroupingAsset(object):
                 node = self.get_except_node(asset)
                 self.move_asset_to_node(asset, node)
             except Exception as e:
-		print("----- Error: {} - {}".format(asset, e))
-                self.exception_assets.append({asset.id: asset.hostname})
-	print("----- Exception Assets: {}".format(self.exception_assets))
+        print("----- Error: {} - {}".format(asset, e))
 
 GroupingAsset().perform()
 
